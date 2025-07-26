@@ -1,0 +1,72 @@
+@import url('variables.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    background-color: var(--ivory, white);
+    color: var(--black, black);
+}
+
+code {
+    line-height: 1.5;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: var(--blue, blue);
+}
+
+code {
+    font-family: monospace;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    li {
+        flex: 1;
+
+        a {
+        display: block;
+        text-align: center;
+        padding: 24px 0;
+        background-color: var(--blue, #2F6690);
+        color: var(--ivory, #FBFFF1);
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+
+            &:hover {
+            background-color: var(--charcoal, black);
+            }
+
+            &:visited {
+                color: var(--ivory, #FBFFF1);
+            }
+        }
+    }
+}
+
+h1 {
+    text-align: center;
+
+    span {
+        color: var(--sienna, #78290F); 
+    }
+}
+
+
+

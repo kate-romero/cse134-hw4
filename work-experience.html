@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kate Romero's Portfolio: Work Experience</title>
+
+    <meta name="description" content="The homepage of Kate Romero's professional portfolio">
+    <meta name="author" content="Kate Romero">
+    <meta name="GitHub:site" content="@kate-romero">
+    <meta name="LinkedIn:site" content="@romerokate">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/variables.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Comme", sans-serif;
+        }
+
+        main {
+            -outline: yellow solid 1px;
+            display:flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            
+            ul{
+                line-height: 1.5;
+                padding: 0 2rem;
+            }
+
+            & > * {
+                -outline: red solid 2px;
+            }
+
+            div {
+                flex: 1;
+                /* padding-left: 18ch; */
+                padding: 0 4rem;
+                -outline: blue solid 1px;
+            }
+        }
+
+        main > div {
+            margin-bottom: 1rem;
+        }
+
+        job-entry {
+            display: block;
+            padding: 2rem 0;
+            /* margin: 0 4rem 0 28ch; */
+            border-bottom: 1px solid #000;
+
+            i {
+                float: right;
+            }
+
+            h2, h3, h4 {
+                margin-top: 0.25rem;
+                margin-bottom: .75rem;
+                padding: 0;
+            }
+
+            h2, h3 {
+                display: inline;
+            }
+
+            ul {
+                margin-top: 0.5rem;
+                margin-bottom: 0.25rem;
+            }
+        }
+
+
+
+        aside {
+            -outline: red solid 1px;
+            max-width: 28ch;
+            display: flex;
+            flex-direction: column;
+            margin-top: 6rem;;
+            padding: 1rem;
+            height: 32rem;
+            border-radius: 0 16px 16px 0;
+            background-color: var(--green, black);
+
+            h2 {
+                text-align: center;
+            }
+
+            ul {
+                margin: 0;
+            }
+
+            div {
+                -outline: blue solid 1px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                padding: 0;
+            }
+
+            section {
+                -outline: orange solid 1px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            * {
+                background-color: var(--green, black);
+                color: var(--ivory, white);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            main {
+                flex-direction: column;
+            }
+
+            main > div {
+                margin-bottom: 16rem;
+            }
+
+            aside {
+                position: fixed;
+                bottom: 0;
+                max-width: 100vw;
+                width: 100vw;
+                border-radius: 16px 16px 0 0;
+                height: auto;
+
+                div {
+                    flex-direction: row;
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="./work-experience.html">Work Experience</a></li>
+            </ul>
+        </nav>
+        <h1>Kate Romero's Portfolio: <span>Work Experience</span></h1>
+    </header>
+    <main>
+
+        <div>
+            <job-entry>
+                <h2>2G Engineering, </h2>
+                <h3>Sun Prairie, WI</h3>
+                <i>June 2024 - August 2024</i>
+                <h4>Embedded Systems Intern</h4>
+                <ul>
+                    <li>Developed firmware for BLDC Simulator to test sub-sea level rotary actuator</li>
+                    <li>Utilized <b>hall effect sensors, SPI,</b> and <b>I2C</b> to control & observe motor-actuator interface</li>
+                    <li>Coordinated <b>dual cores</b> on <b>RP2040</b> to reliably process speeds of up to 140 rpm</li>
+                    <li><b>1st place for lowest energy</b> implementation achieved via use of Stop2 sleep mode</li>
+                    <li><a href="https://github.com/kate-romero/BLDC_Simulator_Firmware">GitHub Repo</a> | 
+                        <a href="https://youtu.be/7H5ZqkXBpd8">Demonstration Video</a></li>
+                </ul>
+            </job-entry>
+
+            <job-entry>
+                <h2>CSE Tutor, </h2>
+                <h3>UCSD</h3>
+                <i>March 2024 - June 2024</i>
+                <h4>Tutor for CSE 30: Computer Organization and Systems Programming</h4>
+                <ul>
+                    <li>Tutored students on course concepts of logic flow, memory management, <b>C</b>, and <b>ARM</b></li>
+                    <li>Guided students in testing and debugging their own code using <b>GDB</b> and <b>Valgrind</b></li>
+                    <li>Hosted office hours which were consistently among the most highly attended</li>
+                </ul>
+            </job-entry>
+        </div>
+
+        <aside>
+            <h2>Skills</h2>
+
+            <div>
+                <section>
+                    <h3>Tools:</h3>
+                    <ul>
+                        <li>GDB</li>
+                        <li>Valgrind</li>
+                        <li>Logic Analyzer</li>
+                        <li>Oscilloscope</li>
+                        <li>Git</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Interfaces:</h3>
+                    <ul>
+                        <li>I2C</li>
+                        <li>SPI</li>
+                        <li>UART</li>
+                        <li>GPIO</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Platforms:</h3>
+                    <ul>
+                        <li>STM32</li>
+                        <li>Raspberry Pi</li>
+                        <li>Linux</li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+    </main>
+    <footer>
+
+    </footer>
+
+
+</body>
+</html>

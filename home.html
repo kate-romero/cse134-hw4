@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kate Romero's Portfolio: Homepage</title>
+
+    <meta name="description" content="The homepage of Kate Romero's professional portfolio">
+    <meta name="author" content="Kate Romero">
+    <meta name="GitHub:site" content="@kate-romero">
+    <meta name="LinkedIn:site" content="@romerokate">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/variables.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Comme", sans-serif;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap:        2rem;
+            margin: 1.5rem 0 4.5rem 0;
+
+            & > * {
+                -outline: red solid 1px;
+            }
+            
+        }
+        
+
+        pre, section {
+            -outline: red solid 1px;
+            padding: 1rem 10%;
+        }
+
+        hgroup {
+            text-align: center;
+            padding: 0 12vw;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        pre{
+            align-self: center;
+            background-color: var(--charcoal, black);
+            border-radius: 12px;
+            code {
+                color: var(--ivory, white);
+                background-color: var(--charcoal, black);
+            }
+        }
+
+        section {
+            width: 80vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            & > * {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            &:has(address) {
+                align-self: start;
+                border-radius: 0 16px 16px 0;
+                background-color: var(--green, black);
+                * {
+                    background-color: var(--green, black);
+                    color: var(--ivory, white);
+                }
+            }
+
+            &:has(form) {
+                align-self: end;
+                border-radius: 16px 0 0 16px;
+                background-color: var(--sienna, black);
+                * {
+                    background-color: var(--sienna, black);
+                    color: var(--ivory, white);
+                }
+                input, textarea {
+                    background-color: var(--ivory, white);
+                    color: black;
+                }
+            }
+
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                white-space: nowrap;
+            }
+
+            input, textarea, button {
+                margin: 5px;
+                padding: 0.5rem;
+                border-radius: 8px;
+                border: 1px solid black;
+            }
+
+            textarea {
+                min-width: 50%;
+                max-width: 80%;
+                height: 6rem;
+            }
+
+            button {
+                background-color: var(--charcoal, black);
+                color: var(--ivory, #FBFFF1);
+                width: 30ch;
+                align-self: center;
+                cursor: pointer;
+                &:hover {
+                    background-color: var(--blue, black);
+                }
+            }
+
+        }
+
+        fieldset {
+            border: 0;
+            display: flex;
+            flex-direction: column;
+            -border: 1px solid blue;
+            align-self: center;
+            
+
+            div {
+                -border: 1px solid red;
+                align-self: self-start;
+            }
+            
+
+            legend {
+                font-weight: bold;
+            }
+
+        }
+
+        footer {
+            background-color: var(--blue, black);
+            text-align: right;
+
+            position: fixed;
+            bottom: 0;
+            transform-origin: left;
+            width: 100vw;
+
+            animation: scrollProgress auto linear;
+            animation-timeline: scroll(root);
+        }
+
+        #scroll-progress {
+            top: 0;
+            left: 0;
+            height: 4px;
+            background-color: var(--blue, black);
+            width: 100vw;
+
+            position: fixed;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: scrollProgress auto linear;
+            animation-timeline: scroll(root);
+        }
+
+        @keyframes scrollProgress {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        footer p {
+            padding: 0.5rem 3ch;
+            background-color: var(--blue, black);
+            color: var(--blue, black);
+            display: inline-block;
+
+            
+        }
+
+        #thanks-message {
+            /* display: inline-block; */
+            background-color: rgba(0, 0, 0, 0);
+            color: var(--ivory, white);
+            position: fixed;
+            bottom: 0.5rem;
+            right: 1.25ch;
+            z-index: 1;
+
+            animation: slideInText auto linear;
+            animation-timeline: scroll(root);
+        }
+
+        @keyframes slideInText {
+            0% { transform: translateX(-100vw); }
+            100% { transform: translateX(0); }
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="./work-experience.html">Work Experience</a></li>
+            </ul>
+        </nav>
+
+        <h1>Kate Romero's Portfolio: <span>Home</span></h1>
+
+    </header>
+
+    <main>
+
+        <hgroup>
+            <h2>About Me</h2>
+            <p>
+                Embedded systems intern with experience developing low-level firmware
+                on STM32 and RP2040 platforms. Skilled in C/C++, sensor integration 
+                (I2C, SPI, UART), and debugging with GDB and logic analyzers. 
+                Passionate about low-power systems and real-time embedded design.
+            </p>
+            <p>
+                Experienced tutor and instructor for <em>kinder - university.</em> 
+                Dedicated to bringing CS Education to <em><strong>all</strong></em>
+            </p>
+        </hgroup>
+
+        <pre><code>#include &lt;stdio.h&gt;<br>int main() {<br>    printf("Hello, World!");<br>    return 0;<br>}</code></pre>
+        
+        <section>
+            <h2>Contact Me</h2>
+
+            <address>
+                <p>Email: <a href="mailto:kgromero@ucsd.edu">kgromero@ucsd.edu</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/romerokate/">linkedin.com/in/romerokate/</a></p>
+                <p>GitHub: <a href="https://github.com/kate-romero">github.com/kate-romero</a></p>
+            </address>
+        </section>
+
+        <section>
+            <h2>Have Me Contact You</h2>
+
+            <form>
+
+                <div>
+                    <label>Name:
+                        <input type="text" name="name" required>
+                    </label>
+
+                    <label>Email:
+                        <input type="email" name="email">
+                    </label>
+
+                    <label>Call:
+                        <input type="tel" name="call">
+                    </label>
+
+                    <label>Text:
+                        <input type="tel" name="text">
+                    </label>
+                </div>
+
+                <fieldset>
+                    <legend>Reason For Reaching Out:</legend>
+
+                    <div>
+                        <input type="checkbox" name="industry_position" id="industry" value="industry">
+                        <label for="industry">Industry Position</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="teaching_position" id="teach" value="teach">
+                        <label for="teach">Teaching Position</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="contract_work" id="contract" value="contract">
+                        <label for="contract">Contract Work</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="other" id="other" value="other">
+                        <label for="other">Other</label>
+                    </div>
+                </fieldset>
+
+                <label for="comments">Comments:<br>
+                    <textarea id="comments" name="comments"></textarea>
+                </label>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <p id="thanks-message">Thanks for visiting!</p>
+
+        <script>
+            // Define a new custom element called <hello-world>
+            class HelloWorld extends HTMLElement {
+                connectedCallback() {
+                    console.log("Hello, World!");
+                }
+            }
+
+            // Register the custom element
+            customElements.define('hello-world', HelloWorld);
+        </script>
+        
+    </main>
+
+    <footer>
+        <hello-world></hello-world>
+        <p>Thanks for visiting!</p>
+    </footer>
+
+</body>
+</html>

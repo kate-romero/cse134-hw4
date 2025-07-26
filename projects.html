@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kate Romero's Portfolio: Projects</title>
+
+    <meta name="description" content="The homepage of Kate Romero's professional portfolio">
+    <meta name="author" content="Kate Romero">
+    <meta name="GitHub:site" content="@kate-romero">
+    <meta name="LinkedIn:site" content="@romerokate">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/variables.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Comme", sans-serif;
+        }
+        
+        main {
+            -outline: blue solid 1px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            min-height: 80vh;
+            margin: 1.5rem 0;
+
+            & > * {
+                -outline: red solid 1px;
+                padding: 3rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                
+
+                width: 40vw;
+                height: 75%;
+                border-radius: 16px;
+
+                &:first-child {
+                    -border: green solid 3px;
+                    align-self: flex-start;
+                    background-color: var(--green, black);
+
+                    * {
+                        background-color: var(--green, black);
+                        color: var(--ivory, white);
+                    }
+                }
+
+                &:last-child {
+                    -border: orange solid 3px;
+                    align-self: flex-end;
+                    background-color: var(--sienna, black);
+
+                    * {
+                        background-color: var(--sienna, black);
+                        color: var(--ivory, white);
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 900px) {
+            
+            main {
+                flex-direction: column;
+                gap: 3rem;
+                margin: 2rem 0;
+
+                & > * {
+                    align-self: center !important;
+                    width: 80vw;
+                }
+            }
+        }
+
+        * {
+            line-height: 1.5;
+        }
+
+        video, source, img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            
+        }
+
+        figure {
+            margin: 1.5rem 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="./work-experience.html">Work Experience</a></li>
+            </ul>
+        </nav>
+        <h1>Kate Romero's Portfolio: <span>Projects</span></h1>
+    </header>
+    <main>
+
+        <section>
+            <h2><abbr title="Brushless Direct Current">BLDC</abbr> Simulator</h2>
+            <h3>for 2G Engineering</h3>
+            <figure>
+                <video controls width="250">
+                    <source src="videos/bldc_sim_demo.mp4" type="video/mp4" >
+                </video>
+                <figcaption>BLDC Simulator Demo</figcaption>
+            </figure>
+            <ul>
+                <li><a href="https://github.com/kate-romero/BLDC_Simulator_Firmware">GitHub Repo</a> </li>
+                <li>Developed firmware for BLDC Simulator to test sub-sea level rotary actuator</li>
+                <li>Utilized hall effect sensors, SPI, and I2C to control & observe motor-actuator interface</li>
+                <li>Coordinated dual cores on RP2040 to reliably process speeds of up to 140 rpm</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>YouLostIt (lightweight AirTag)</h2>
+            <h3>for UCSD CSE 190B with Prof. Aaron Schulman</h3>
+            <figure>
+                <picture>
+                    <source srcset="images/compressed/youlostit_vert.jpeg" > <!-- media="(width >= 1200px)" -->
+                    <!-- <source srcset="images/compressed/youlostit_horiz.jpeg" width="250" > -->
+                    <img src="images/compressed/youlostit_vert.jpeg" alt="Photo of YouLostIt STM32 Microcontroller" >
+                </picture>
+                <figcaption>YouLostIt STM32 Microcontroller</figcaption>
+            </figure>
+            <ul>
+                <li><a href="https://github.com/ucsd-cse190b-w25/project-3-adding-low-energy-radio-communication-team-7">GitHub Repo</a> </li>
+                <li>Implemented a lightweight AirTag using a STM32 microcontroller with a team of 3</li>
+                <li>Utilized accelerometer, I2C, and UART to collect and transfer data</li>
+                <li><strong>1st place for lowest energy</strong> implementation achieved via use of Stop2 sleep mode</li>
+            </ul>
+        </section>
+
+    </main>
+    <footer>
+        More coming soon . . .
+    </footer>
+
+
+</body>
+</html>
