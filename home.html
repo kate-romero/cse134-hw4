@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,7 +263,14 @@
             </ul>
         </nav>
 
-        <h1>Kate Romero's Portfolio: <span>Home</span></h1>
+        <div>
+            <h1>Kate Romero's Portfolio: <span>Home</span></h1>
+            <button
+                type="button"
+                data-theme-toggle
+                aria-label="Toggle Theme"
+            >☀️</button>
+        </div>
 
     </header>
 
@@ -529,6 +536,23 @@
                 inputElement.classList.remove("warn-approach-char-limit");
             }
         }
+
+        // Theme Toggle
+        const button = document.querySelector("[data-theme-toggle]");
+        let currentThemeSetting = localStorage.getItem("theme") || "light";
+
+        document.querySelector("html").setAttribute("data-theme", currentThemeSetting);
+        let icon = (currentThemeSetting == "dark") ? "🌙" : "☀️";
+        button.innerText = icon;
+
+        button.addEventListener("click", (event) => {
+        const newTheme = (currentThemeSetting == "dark") ? "light" : "dark";
+        const newIcon = (newTheme == "dark") ? "🌙" : "☀️";
+        button.innerText = newIcon;
+        document.querySelector("html").setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        currentThemeSetting = newTheme;
+        });
 
     </script>
 
