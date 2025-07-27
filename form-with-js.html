@@ -52,11 +52,11 @@
 
         pre{
             align-self: center;
-            background-color: var(--color-accent2, black);
+            background-color: var(--charcoal, black);
             border-radius: 12px;
             code {
-                color: var(--color-acc-text, white);
-                background-color: var(--color-accent2, black);
+                color: var(--ivory, white);
+                background-color: var(--charcoal, black);
             }
         }
 
@@ -76,24 +76,24 @@
             &:has(address) {
                 align-self: start;
                 border-radius: 0 16px 16px 0;
-                background-color: var(--color-accent3, black);
+                background-color: var(--green, black);
                 * {
-                    background-color: var(--color-accent3, black);
-                    color: var(--color-acc-text, white);
+                    background-color: var(--green, black);
+                    color: var(--ivory, white);
                 }
             }
 
             &:has(form) {
                 align-self: end;
                 border-radius: 16px 0 0 16px;
-                background-color: var(--color-accent4, black);
+                background-color: var(--sienna, black);
                 * {
-                    background-color: var(--color-accent4, black);
-                    color: var(--color-acc-text, white);
+                    background-color: var(--sienna, black);
+                    color: var(--ivory, white);
                 }
                 input, textarea {
-                    background-color: var(--color-background, white);
-                    color: --color-bg-text;
+                    background-color: var(--ivory, white);
+                    color: black;
                 }
             }
 
@@ -107,7 +107,7 @@
                 white-space: nowrap;
                 &:has([required])::before {
                     content: "(*) ";
-                    color: var(--color-acc-text, white);
+                    color: var(--ivory);
                 }
             }
 
@@ -115,7 +115,7 @@
                 margin: 5px;
                 padding: 0.5rem;
                 border-radius: 8px;
-                border: 1px solid --color-bg-text;
+                border: 1px solid black;
             }
 
             textarea {
@@ -145,29 +145,29 @@
         }
 
             button {
-                background-color: var(--color-accent2, black);
-                color: var(--color-acc-text, white);
+                background-color: var(--charcoal, black);
+                color: var(--ivory, #FBFFF1);
                 width: 30ch;
                 align-self: center;
                 cursor: pointer;
                 &:hover {
-                    background-color: var(--color-accent1, black);
+                    background-color: var(--blue, black);
                 }
             }
 
             input:focus {
-                outline: 2px solid var(--color-accent1, black);
+                outline: 2px solid var(--blue, blue);
                 outline-offset: 2px;
             }
 
             input:user-invalid {
-                background-color: var(--color-error-bg, red);
-                outline: 2px solid var(--color-error-outline, red);
+                background-color: var(--light-red);
+                outline: 2px solid var(--bright-red, red);
                 outline-offset: 2px;
             }
 
             input:focus:invalid {
-                background-color: var(--color-background, white);
+                background-color: var(--ivory, white);
             }
 
         }
@@ -177,19 +177,19 @@
         }
 
         .warn-flash-off {
-            background-color: var(--color-background, white) !important;
+            background-color: var(--ivory, white) !important;
         }
 
         .warning-flash-on {
-            background-color: var(--color-error-bg, red) !important;
+            background-color: var(--light-red, red) !important;
         }
 
         .warn-approach-char-limit {
-            background-color: var(--color-warning-bg, yellow) !important;
+            background-color: var(--light-yellow, yellow) !important;
         }
 
         footer {
-            background-color: var(--color-accent1, black);
+            background-color: var(--blue, black);
             text-align: right;
 
             position: fixed;
@@ -205,7 +205,7 @@
             top: 0;
             left: 0;
             height: 4px;
-            background-color: var(--color-accent1, black);
+            background-color: var(--blue, black);
             width: 100vw;
 
             position: fixed;
@@ -222,8 +222,8 @@
 
         footer p {
             padding: 0.5rem 3ch;
-            background-color: var(--color-accent1, black);
-            color: var(--color-accent1, black);
+            background-color: var(--blue, black);
+            color: var(--blue, black);
             display: inline-block;
 
             
@@ -232,7 +232,7 @@
         #thanks-message {
             /* display: inline-block; */
             background-color: rgba(0, 0, 0, 0);
-            color: var(--color-acc-text, white);
+            color: var(--ivory, white);
             position: fixed;
             bottom: 0.5rem;
             right: 1.25ch;

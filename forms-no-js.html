@@ -52,11 +52,11 @@
 
         pre{
             align-self: center;
-            background-color: var(--color-accent2, black);
+            background-color: var(--charcoal, black);
             border-radius: 12px;
             code {
-                color: var(--color-acc-text, white);
-                background-color: var(--color-accent2, black);
+                color: var(--ivory, white);
+                background-color: var(--charcoal, black);
             }
         }
 
@@ -76,24 +76,24 @@
             &:has(address) {
                 align-self: start;
                 border-radius: 0 16px 16px 0;
-                background-color: var(--color-accent3, black);
+                background-color: var(--green, black);
                 * {
-                    background-color: var(--color-accent3, black);
-                    color: var(--color-acc-text, white);
+                    background-color: var(--green, black);
+                    color: var(--ivory, white);
                 }
             }
 
             &:has(form) {
                 align-self: end;
                 border-radius: 16px 0 0 16px;
-                background-color: var(--color-accent4, black);
+                background-color: var(--sienna, black);
                 * {
-                    background-color: var(--color-accent4, black);
-                    color: var(--color-acc-text, white);
+                    background-color: var(--sienna, black);
+                    color: var(--ivory, white);
                 }
                 input, textarea {
-                    background-color: var(--color-background, white);
-                    color: --color-bg-text;
+                    background-color: var(--ivory, white);
+                    color: black;
                 }
             }
 
@@ -107,7 +107,7 @@
                 white-space: nowrap;
                 &:has([required])::before {
                     content: "(*) ";
-                    color: var(--color-acc-text, white);
+                    color: var(--ivory);
                 }
             }
 
@@ -115,7 +115,7 @@
                 margin: 5px;
                 padding: 0.5rem;
                 border-radius: 8px;
-                border: 1px solid --color-bg-text;
+                border: 1px solid black;
             }
 
             textarea {
@@ -145,51 +145,35 @@
         }
 
             button {
-                background-color: var(--color-accent2, black);
-                color: var(--color-acc-text, white);
+                background-color: var(--charcoal, black);
+                color: var(--ivory, #FBFFF1);
                 width: 30ch;
                 align-self: center;
                 cursor: pointer;
                 &:hover {
-                    background-color: var(--color-accent1, black);
+                    background-color: var(--blue, black);
                 }
             }
 
             input:focus {
-                outline: 2px solid var(--color-accent1, black);
+                outline: 2px solid var(--blue, blue);
                 outline-offset: 2px;
             }
 
             input:user-invalid {
-                background-color: var(--color-error-bg, red);
-                outline: 2px solid var(--color-error-outline, red);
+                background-color: var(--light-red);
+                outline: 2px solid var(--bright-red, red);
                 outline-offset: 2px;
             }
 
             input:focus:invalid {
-                background-color: var(--color-background, white);
+                background-color: var(--ivory, white);
             }
 
         }
 
-        .error {
-            display: none;
-        }
-
-        .warn-flash-off {
-            background-color: var(--color-background, white) !important;
-        }
-
-        .warning-flash-on {
-            background-color: var(--color-error-bg, red) !important;
-        }
-
-        .warn-approach-char-limit {
-            background-color: var(--color-warning-bg, yellow) !important;
-        }
-
         footer {
-            background-color: var(--color-accent1, black);
+            background-color: var(--blue, black);
             text-align: right;
 
             position: fixed;
@@ -205,7 +189,7 @@
             top: 0;
             left: 0;
             height: 4px;
-            background-color: var(--color-accent1, black);
+            background-color: var(--blue, black);
             width: 100vw;
 
             position: fixed;
@@ -222,8 +206,8 @@
 
         footer p {
             padding: 0.5rem 3ch;
-            background-color: var(--color-accent1, black);
-            color: var(--color-accent1, black);
+            background-color: var(--blue, black);
+            color: var(--blue, black);
             display: inline-block;
 
             
@@ -232,7 +216,7 @@
         #thanks-message {
             /* display: inline-block; */
             background-color: rgba(0, 0, 0, 0);
-            color: var(--color-acc-text, white);
+            color: var(--ivory, white);
             position: fixed;
             bottom: 0.5rem;
             right: 1.25ch;
@@ -346,17 +330,15 @@
                     <textarea id="comments" name="comments" maxlength="1300"></textarea>
                 </label>
 
-                <input type="hidden" name="possible_bot" value="true">  <!-- TODO: Implement bot detection? -->
-                <input type="hidden" name="form_errors">
-
-                <h3 class="error">Error:</h3>
-                <output class="error" id="formErrors"></output>
-                <output id="formInfo"></output>
+                <input type="hidden" name="possible_bot" value="true">
 
                 <button type="submit">Submit</button>
             </form>
 
-            
+            <h3>Errors:</h3>
+            <output id="formErrors"></output>
+            <h3>Information:</h3>
+            <output id="formInfo"></output>
 
         </section>
 
@@ -380,157 +362,6 @@
         <hello-world></hello-world>
         <p>Thanks for visiting!</p>
     </footer>
-
-    <script>
-        const name = document.querySelector('input[name="name"]');
-        const email = document.querySelector('input[name="email"]');
-        const call = document.querySelector('input[name="call"]');
-        const text = document.querySelector('input[name="text"]');
-        const comments = document.querySelector('textarea[name="comments"]');
-        const form = document.querySelector('form');
-        const formErrors = document.querySelector('input[name="form_errors"]');
-        const possibleBot = document.querySelector('input[name="possible_bot"]');
-
-        let warningFlashInterval;
-        let flashInProgress = false;  // TODO: debug; need atomic assignment?
-        let form_errors = new Array();
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-            displayCharCount(comments);
-        });
-
-        name.addEventListener('input', (event) => {
-            if (name.validity.valueMissing) {
-                name.setCustomValidity("You must enter your name.");
-            } else if (name.validity.patternMismatch) {
-                name.setCustomValidity("Your name must only contain letters, spaces, hyphens, and apostrophes.");
-                name.value = name.value.slice(0, -1);
-                warnIllegalChar(name.validationMessage, name);
-            } else if (name.validity.tooLong) {
-                name.setCustomValidity("Your name must not exceed 50 characters.");
-                warnIllegalChar(name.validationMessage, name);
-            } else {
-                name.setCustomValidity("");
-            }
-            form_errors.push(name.validationMessage);
-        });
-
-        email.addEventListener('input', (event) => {
-            if (email.validity.valueMissing) {
-                email.setCustomValidity("You must enter your email.");
-                form_errors.push(email.validationMessage);
-            } else if (email.validity.typeMismatch) {
-                email.setCustomValidity("Please enter a valid email address.");
-            } else if (email.validity.tooLong) {
-                email.setCustomValidity("Your email must not exceed 30 characters.");
-                warnIllegalChar(email.validationMessage, email);
-                form_errors.push(email.validationMessage);
-            } else {
-                email.setCustomValidity("");
-            }
-        });
-
-        call.addEventListener('input', (event) => {
-            if (call.validity.patternMismatch) {
-                call.setCustomValidity("Your phone number (call) must only contain numbers, spaces, parentheses, plus, and hyphens.");
-                call.value = call.value.slice(0, -1);
-                warnIllegalChar(call.validationMessage, call);
-            } else if (call.validity.tooLong) {
-                call.setCustomValidity("Your phone number (call) must not exceed 20 characters.");
-                warnIllegalChar(call.validationMessage, call);
-            } else {
-                call.setCustomValidity("");
-            }
-            form_errors.push(call.validationMessage);
-        });
-
-        text.addEventListener('input', (event) => {
-            if (text.validity.patternMismatch) {
-                text.setCustomValidity("Your phone number (text) must only contain numbers, spaces, parentheses, plus, and hyphens.");
-                text.value = text.value.slice(0, -1);
-                warnIllegalChar(text.validationMessage, text);
-            } else if (text.validity.tooLong) {
-                text.setCustomValidity("Your phone number (text) must not exceed 20 characters.");
-                warnIllegalChar(text.validationMessage, text);
-            } else {
-                text.setCustomValidity("");
-            }
-            form_errors.push(text.validationMessage);
-        });
-
-        comments.addEventListener('input', (event) => {
-            if (comments.validity.tooLong) {
-                comments.setCustomValidity("Your comment must not exceed 1300 characters.");
-                warnIllegalChar(comments.validationMessage, comments);
-            } else {
-                comments.setCustomValidity("");
-            }
-            displayCharCount(comments);
-            form_errors.push(comments.validationMessage);
-        });
-
-        form.addEventListener('submit', (event) => {
-            formErrors.value = form_errors.filter(Boolean).join('\n');
-        });
-
-        document.addEventListener('keydown', (event) => {
-            possibleBot.value = "false";
-        });
-
-        function warnIllegalChar(message, inputElement) {
-
-            document.getElementsByClassName("error")[0].style.display = "block";
-            document.getElementsByClassName("error")[1].style.display = "block";
-
-            document.getElementById("formErrors").textContent = message;
-
-            setTimeout(function() {
-                document.getElementById("formErrors").textContent = "";
-                document.getElementsByClassName("error")[0].style.display = "none";
-                document.getElementsByClassName("error")[1].style.display = "none";
-            }, 3000);
-
-            if (!flashInProgress) {
-                flashInProgress = true;
-
-                startWarningFlash(inputElement);
-                setTimeout(function() {
-                    stopWarningFlash(inputElement);
-                }, 3000);
-
-                flashInProgress = false;
-            }
-            
-        }
-
-        function startWarningFlash(inputElement) {
-            inputElement.classList.add("warning-flash-on");
-            inputElement.classList.remove("warn-flash-off");
-            warningFlashInterval = setInterval(function() {
-                inputElement.classList.toggle("warning-flash-on");
-                inputElement.classList.toggle("warn-flash-off");
-            }, 500);
-        }
-
-        function stopWarningFlash(inputElement) {
-            clearInterval(warningFlashInterval);
-            inputElement.classList.remove("warning-flash-on");
-            inputElement.classList.remove("warn-flash-off");
-        }
-
-        function displayCharCount(inputElement) {
-            const charCount = inputElement.value.length;
-            const maxLength = inputElement.getAttribute("maxlength");
-            document.getElementById("formInfo").textContent = `Comment character count: ${charCount}/${maxLength}`;
-
-            if (charCount > 1000) {
-                inputElement.classList.add("warn-approach-char-limit");
-            } else {
-                inputElement.classList.remove("warn-approach-char-limit");
-            }
-        }
-
-    </script>
 
 </body>
 </html>

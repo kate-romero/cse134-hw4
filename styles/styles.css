@@ -5,8 +5,8 @@
     margin: 0;
     padding: 0;
     
-    background-color: var(--ivory, white);
-    color: var(--black, black);
+    background-color: var(--color-background, white);
+    color: var(--color-bg-text, black);
 }
 
 code {
@@ -18,7 +18,7 @@ p {
 }
 
 a {
-    color: var(--blue, blue);
+    color: var(--color-accent1, black);
 }
 
 code {
@@ -44,17 +44,17 @@ nav ul {
         display: block;
         text-align: center;
         padding: 24px 0;
-        background-color: var(--blue, #2F6690);
-        color: var(--ivory, #FBFFF1);
+        background-color: var(--color-accent1, black);
+        color: var(--color-acc-text, white);
         text-decoration: none;
         transition: background-color 0.3s ease;
 
             &:hover {
-            background-color: var(--charcoal, black);
+            background-color: var(--color-accent2, black);
             }
 
             &:visited {
-                color: var(--ivory, #FBFFF1);
+                color: var(--color-acc-text, white);
             }
         }
     }
@@ -64,7 +64,7 @@ h1 {
     text-align: center;
 
     span {
-        color: var(--sienna, #78290F); 
+        color: var(--color-accent4, black); 
     }
 }
 
