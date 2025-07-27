@@ -18,7 +18,7 @@ p {
 }
 
 a {
-    color: var(--color-accent1, black);
+    color: rgb(45, 45, 216);
 }
 
 code {
